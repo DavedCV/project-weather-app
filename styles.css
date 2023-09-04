@@ -169,10 +169,16 @@ div[class^="extra-info"] p {
   color: var(--fc-day);
   font-size: 1.2rem;
   border: none;
+  border-radius: 1rem;
+  padding: 0.2rem 0.5rem; 
 } 
 
 .forecast-mode button:is(:focus, :hover) {
   text-decoration: underline;
+}
+
+.forecast-mode button.active {
+  background-color: var(--day-blue-3);
 }
 
 .forecast-cards {
