@@ -16,6 +16,9 @@
 
   --fc-day: black;
   --fc-night: white;
+
+  --container-day: var(--night-black);
+  --container-day: var(--day-blue-1);
 }
 
 *,
@@ -35,9 +38,9 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: var(--night);
+  background: var(--day);
   font-family: var(--ff);
-  color: var(--fc-night);
+  color: var(--fc-day);
 }
 
 /* main ----------------------------------------------------------------------*/
@@ -58,14 +61,14 @@ main {
   font-family: var(--ff);
   padding: 0.5rem 1rem;
   color: var(--fc-night);
-  background-color: var(--nigh-blue-3);
-  border: 2px solid var(--fc-night);
+  background-color: var(--container-day);
+  border: 2px solid var(--fc-day);
   outline: none;
   border-radius: 1rem;
 }
 
 .search-box-input::placeholder {
-  color: var(--fc-night);
+  color: var(--fc-day);
 }
 
 .search-box-input:is(:focus, :hover) {
@@ -83,7 +86,7 @@ main {
 
 .weather-info {
   padding: 1rem;
-  background-color: var(--night-black);
+  background-color: var(--container-day);
   border-radius: 2rem;
   margin-block: 2rem;
 }
@@ -122,7 +125,7 @@ main {
 
 .weather-extra-info {
   padding: 1rem;
-  background-color: var(--night-black);
+  background-color: var(--container-day);
   border-radius: 2rem;
   margin-block: 2rem;
 
@@ -147,7 +150,7 @@ div[class^="extra-info"] p {
 
 .weather-forecast {
   padding: 1rem;
-  background-color: var(--night-black);
+  background-color: var(--container-day);
   border-radius: 2rem;
   margin-block: 2rem;
   width: 100%;
@@ -163,7 +166,7 @@ div[class^="extra-info"] p {
 
 .forecast-mode button {
   background: none;
-  color: var(--fc-night);
+  color: var(--fc-day);
   font-size: 1.2rem;
   border: none;
 } 
@@ -209,7 +212,7 @@ div[class^="extra-info"] p {
 }
 
 .forecast-cards > div.active {
-  background-color: #0B2559;
+  background-color: var(--day-blue-3);
 }
 
 .forecast-cards > div * {
