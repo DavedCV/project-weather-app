@@ -1,0 +1,236 @@
+:root {
+  --ff: font-family: 'Rubik', sans-serif;
+
+  --night-blue-1: #163E73;
+  --night-blue-2: #0B2559;
+  --nigh-blue-3: #0A1C40;
+  --night-black: #011526;
+
+  --day-white: #D5E7F2;
+  --day-blue-1: #94CEF2;
+  --day-blue-2: #5FAAD9;
+  --day-blue-3: #559BD9;
+
+  --day: linear-gradient(var(--day-white), var(--day-blue-1), var(--day-blue-2), var(--day-blue-3));
+  --night: linear-gradient(var(--night-blue-1), var(--night-blue-2), var(--nigh-blue-3), var(--night-black));
+
+  --fc-day: black;
+  --fc-night: white;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--night);
+  font-family: var(--ff);
+  color: var(--fc-night);
+}
+
+/* main ----------------------------------------------------------------------*/
+
+main {
+  width: 80%;
+}
+
+/* search box ----------------------------------------------------------------*/
+
+.search-box {
+  width: max-content;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-box-input {
+  font-family: var(--ff);
+  padding: 0.5rem 1rem;
+  color: var(--fc-night);
+  background-color: var(--nigh-blue-3);
+  border: 2px solid var(--fc-night);
+  outline: none;
+  border-radius: 1rem;
+}
+
+.search-box-input::placeholder {
+  color: var(--fc-night);
+}
+
+.search-box-input:is(:focus, :hover) {
+  box-shadow: 0 0 0.5rem var(--fc-night);
+}
+
+.search-box-button {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* weather info --------------------------------------------------------------*/
+
+.weather-info {
+  padding: 1rem;
+  background-color: var(--night-black);
+  border-radius: 2rem;
+  margin-block: 2rem;
+}
+
+.place-info {
+  text-align: center;
+  margin-block: 1rem;
+}
+
+.place-info h1,
+.place-info p {
+  margin: 0;
+}
+
+.condition {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.condition .condition-icon {
+  width: 100%;
+}
+
+.condition .condition-icon img {
+  width: 100%;
+}
+
+.condition .condition-info > * {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* extra info ----------------------------------------------------------------*/
+
+.weather-extra-info {
+  padding: 1rem;
+  background-color: var(--night-black);
+  border-radius: 2rem;
+  margin-block: 2rem;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div[class^="extra-info"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+div[class^="extra-info"] p {
+  margin: 0;
+}
+
+/* weather forecast ----------------------------------------------------------*/
+
+.weather-forecast {
+  padding: 1rem;
+  background-color: var(--night-black);
+  border-radius: 2rem;
+  margin-block: 2rem;
+  width: 100%;
+}
+
+.forecast-mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.forecast-mode button {
+  background: none;
+  color: var(--fc-night);
+  font-size: 1.2rem;
+  border: none;
+} 
+
+.forecast-mode button:is(:focus, :hover) {
+  text-decoration: underline;
+}
+
+.forecast-cards {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+
+  position: relative;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
+}
+
+.forecast-cards::-webkit-scrollbar {
+  height: 1px;
+}
+
+.forecast-cards::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.forecast-cards::-webkit-scrollbar-thumb {
+  background: var(--day-white);
+}
+
+.forecast-cards > div {
+  border-radius: 2rem;
+  flex: 0 0 calc((100% - 1rem) / 2);
+  scroll-snap-align: start;
+
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.forecast-cards > div.active {
+  background-color: #0B2559;
+}
+
+.forecast-cards > div * {
+  margin: 0;
+}
+
+/* footer --------------------------------------------------------------------*/
+
+footer > * {
+  margin-block: 0.5rem;
+  text-decoration: none;
+  color: var(--fc-night);
+}
+
+footer .info-dev {
+  display: flex;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+footer .info-dev * {
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+
+  <!-- Import Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Import styles and script -->
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./scrips.js" defer></script>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/1d6c1d828f.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <main>
+      <div class="search-box">
+        <input type="text" class="search-box-input" placeholder="Search Locations">
+        <div class="search-box-button">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div> 
+      </div>
+
+      <div class="weather-info">
+        <div class="place-info">
+          <h1 class="place-name">Medellin</h1>
+          <p class="place-region-country">Antioquia, Colombia</p>
+        </div>
+
+        <div class="condition">
+          <div class="condition-icon">
+            <img src="./weather-status/weather-icons/64x64/day/116.png" alt="condition icon">
+          </div>
+          <div class="condition-info">
+            <h2>26.0 ° C</h2>
+            <p class="condition-text">Partly cloudy</p>
+            <p class="last-updated">2023-09-04 14:45</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="weather-extra-info">
+        <div class="extra-info-humidity">
+          <i class="fa-solid fa-droplet"></i>
+          <p>40%</p>
+        </div>
+
+        <div class="extra-info-wind">
+          <i class="fa-solid fa-wind"></i>
+          <p>19.1 km/h</p>
+        </div>
+
+        <div class="extra-info-max-temp">
+          <i class="fa-solid fa-temperature-arrow-up"></i>
+          <p>22.3</p>
+        </div>
+
+        <div class="extra-info-min-temp">
+          <i class="fa-solid fa-temperature-arrow-down"></i>
+          <p>12.2</p>
+        </div>
+      </div>
+
+      <div class="weather-forecast">
+        <div class="forecast-mode">
+          <button>
+            Today
+          </button>
+          <button>
+            Week
+          </button>
+        </div>
+
+        <div class="forecast-cards">
+          <div class="card-1 active">
+            <p class="forecast-time">04/09/2023</p>
+            <img src="./weather-status/weather-icons/64x64/day/113.png" class="forecast-icon">
+            <p class="forecast-temp">29.0 ° C</p>
+          </div>
+          <div class="card-2">
+            <p class="forecast-time">04/09/2023</p>
+            <img src="./weather-status/weather-icons/64x64/day/113.png" class="forecast-icon">
+            <p class="forecast-temp">29.0 ° C</p>
+          </div>
+          <div class="card-3">
+            <p class="forecast-time">04/09/2023</p>
+            <img src="./weather-status/weather-icons/64x64/day/113.png" class="forecast-icon">
+            <p class="forecast-temp">29.0 ° C</p>
+          </div>
+          <div class="card-4">
+            <p class="forecast-time">04/09/2023</p>
+            <img src="./weather-status/weather-icons/64x64/day/113.png" class="forecast-icon">
+            <p class="forecast-temp">29.0 ° C</p>
+          </div>
+        </div>
+      </div>
+  </main>
+  <footer>
+    <div class="info-dev">
+      <i class="fa-brands fa-github"></i>
+      <p>DavedCV</p>
+    </div>
+    Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>
+  </footer>
+</body>
+
+</html>
