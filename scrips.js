@@ -19,7 +19,7 @@ const updatePageColors = (timeOfDay) => {
 };
 
 const updateWeatherInfo = (locationInfo, currentWeather) => {
-  console.log("location info", locationInfo);
+  // console.log("location info", locationInfo);
   console.log("current weather", currentWeather);
 
   // update place info
@@ -118,6 +118,17 @@ const createForecastCards = (data, hourly) => {
   }
 };
 
+const updateGeneralData = (data) => {
+  updateWeatherInfo(data.location, data.current);
+  updateExtraInfo(
+    data.current.humidity,
+    data.current.wind_kph,
+    data.forecast.forecastday[0].day.maxtemp_c,
+    data.forecast.forecastday[0].day.mintemp_c,
+  );
+  updateForecast(data.forecast);
+};
+
 const getDataFromApi = async (placeName) => {
   const key = "65cff02c03f3443ab9c194929230309";
 
@@ -131,23 +142,28 @@ const getDataFromApi = async (placeName) => {
     }
 
     const data = await response.json();
-    //console.log(data);
-
-    updateWeatherInfo(data.location, data.current);
-    updateExtraInfo(
-      data.current.humidity,
-      data.current.wind_kph,
-      data.forecast.forecastday[0].day.maxtemp_c,
-      data.forecast.forecastday[0].day.mintemp_c,
-    );
-    updateForecast(data.forecast);
+    // console.log(data);
+    return data;
   } catch (err) {
     console.log("error", err);
   }
 };
 
+const setListenersSearchBox = () => {
+  const searchInput = searchBox.querySelector(".search-box-input");
+  const searchButton = searchBox.querySelector(".search-box-button");
+
+  searchButton.addEventListener("click", () => {
+    const targetPlace = searchInput.value;
+    searchInput.value = "";
+
+    getDataFromApi(targetPlace).then(updateGeneralData);
+  });
+};
+
 const init = () => {
-  getDataFromApi("japan");
+  getDataFromApi("Bogota").then(updateGeneralData);
+  setListenersSearchBox();
 };
 
 init();
