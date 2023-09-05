@@ -132,21 +132,18 @@ const updateGeneralData = (data) => {
 const getDataFromApi = async (placeName) => {
   const key = "65cff02c03f3443ab9c194929230309";
 
-  try {
-    const response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${placeName}&days=3&aqi=noy&alerts=no`,
-    );
+  const response = await fetch(
+    `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${placeName}&days=3&aqi=noy&alerts=no`,
+  );
 
-    if (!response.ok) {
-      throw new Error("Bad fetch response");
-    }
-
-    const data = await response.json();
-    // console.log(data);
-    return data;
-  } catch (err) {
-    console.log("error", err);
+  if (!response.ok) {
+    throw new Error("Bad fetch response");
   }
+
+  const data = await response.json();
+  // console.log(data);
+  
+  return data;
 };
 
 const setListenersSearchBox = () => {
@@ -157,7 +154,9 @@ const setListenersSearchBox = () => {
     const targetPlace = searchInput.value;
     searchInput.value = "";
 
-    getDataFromApi(targetPlace).then(updateGeneralData);
+    getDataFromApi(targetPlace)
+      .then(updateGeneralData)
+      .catch((err) => console.log(err));
   });
 };
 
