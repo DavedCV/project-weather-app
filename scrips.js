@@ -20,7 +20,7 @@ const updatePageColors = (timeOfDay) => {
 
 const updateWeatherInfo = (locationInfo, currentWeather) => {
   // console.log("location info", locationInfo);
-  console.log("current weather", currentWeather);
+  // console.log("current weather", currentWeather);
 
   // update place info
   const placeName = weatherInfo.querySelector(".place-name");
@@ -61,7 +61,7 @@ const updateExtraInfo = (humidity, wind, max_temp, min_temp) => {
 };
 
 const updateForecast = (forecastData) => {
-  console.log(forecastData);
+  // console.log(forecastData);
 
   const buttonToday = weatherForecast.querySelector("button.today");
   const buttonWeek = weatherForecast.querySelector("button.week");
