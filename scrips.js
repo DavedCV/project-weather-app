@@ -142,7 +142,7 @@ const getDataFromApi = async (placeName) => {
 
   const data = await response.json();
   // console.log(data);
-  
+
   return data;
 };
 
@@ -161,7 +161,7 @@ const setListenersSearchBox = () => {
 };
 
 const init = () => {
-  getDataFromApi("Bogota").then(updateGeneralData);
+  getDataFromApi("Medellin").then(updateGeneralData);
   setListenersSearchBox();
 };
 
