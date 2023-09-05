@@ -133,7 +133,7 @@ const getDataFromApi = async (placeName) => {
   const key = "65cff02c03f3443ab9c194929230309";
 
   const response = await fetch(
-    `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${placeName}&days=3&aqi=noy&alerts=no`,
+    `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${placeName}&days=3&aqi=noy&alerts=no`,
   );
 
   if (!response.ok) {
