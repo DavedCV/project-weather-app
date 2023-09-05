@@ -212,6 +212,8 @@ div[class^="extra-info"] p {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+
+  text-align: center;
 }
 
 .forecast-cards > div.active {

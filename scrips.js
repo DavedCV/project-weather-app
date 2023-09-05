@@ -62,6 +62,60 @@ const updateExtraInfo = (humidity, wind, max_temp, min_temp) => {
 
 const updateForecast = (forecastData) => {
   console.log(forecastData);
+
+  const buttonToday = weatherForecast.querySelector("button.today");
+  const buttonWeek = weatherForecast.querySelector("button.week");
+
+  buttonWeek.classList.add("active");
+  createForecastCards(forecastData.forecastday);
+
+  buttonToday.addEventListener("click", () => {
+    buttonToday.classList.add("active");
+    buttonWeek.classList.remove("active");
+    createForecastCards(forecastData.forecastday[0].hour, true);
+  });
+
+  buttonWeek.addEventListener("click", () => {
+    buttonToday.classList.remove("active");
+    buttonWeek.classList.add("active");
+    createForecastCards(forecastData.forecastday, false);
+  });
+};
+
+const createForecastCards = (data, hourly) => {
+  const forecastCards = weatherForecast.querySelector(".forecast-cards");
+  forecastCards.innerHTML = "";
+
+  for (let i = 0; i < data.length; i++) {
+    const dateField = !hourly ? data[i].date : data[i].time;
+    const iconRef = !hourly ? data[i].day : data[i];
+    const tempField = !hourly ? data[i].day.avgtemp_c : data[i].temp_c;
+
+    // create card element
+    const card = document.createElement("div");
+    card.classList.add(`card-${i}`);
+
+    // create date descriptor
+    const date = document.createElement("p");
+    date.classList.add("forecast-time");
+    date.textContent = dateField;
+    card.appendChild(date);
+
+    // weather icon
+    const icon = document.createElement("img");
+    icon.classList.add("forecast-icon");
+    const iconPath = iconRef.condition.icon.split("weather/")[1];
+    icon.src = `./weather-status/weather-icons/${iconPath}`;
+    card.appendChild(icon);
+
+    // create temp descriptr
+    const temp = document.createElement("p");
+    temp.classList.add("forecast-temp");
+    temp.textContent = `${tempField} ° C`;
+    card.appendChild(temp);
+
+    forecastCards.appendChild(card);
+  }
 };
 
 const getDataFromApi = async (placeName) => {
