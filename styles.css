@@ -3,7 +3,7 @@
 
   --night-blue-1: #163E73;
   --night-blue-2: #0B2559;
-  --nigh-blue-3: #0A1C40;
+  --night-blue-3: #0A1C40;
   --night-black: #011526;
 
   --day-white: #D5E7F2;
@@ -12,14 +12,10 @@
   --day-blue-3: #559BD9;
 
   --day: linear-gradient(var(--day-white), var(--day-blue-1), var(--day-blue-2), var(--day-blue-3));
-  --night: linear-gradient(var(--night-blue-1), var(--night-blue-2), var(--nigh-blue-3), var(--night-black));
+  --night: linear-gradient(var(--night-blue-1), var(--night-blue-2), var(--night-blue-3), var(--night-black));
 
-  --fc-day: black;
-  --fc-night: white;
-
-  --container-day: var(--night-black);
+  --container-night: var(--night-blue-3);
   --container-day: var(--day-blue-1);
-  --fc: black;
 }
 
 *,
@@ -39,10 +35,14 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: var(--day);
+  background: var(--night);
   font-family: var(--ff);
   font-size: 0.9rem;
   color: var(--fc);
+
+  --fc: black;
+  --container: var(--container-day);
+  --active: var(--day-blue-1);
 }
 
 
@@ -62,7 +62,7 @@ main {
 
 .search-box-input {
   padding: 0.5rem 1rem;
-  background-color: var(--container-day);
+  background-color: var(--container);
   border: 2px solid var(--fc);
   outline: none;
   border-radius: 1rem;
@@ -87,7 +87,7 @@ main {
 
 .weather-info {
   padding: 1rem;
-  background-color: var(--container-day);
+  background-color: var(--container);
   border-radius: 2rem;
   margin-block: 2rem;
 }
@@ -126,7 +126,7 @@ main {
 
 .weather-extra-info {
   padding: 1rem;
-  background-color: var(--container-day);
+  background-color: var(--container);
   border-radius: 2rem;
   margin-block: 2rem;
 
@@ -151,7 +151,7 @@ div[class^="extra-info"] p {
 
 .weather-forecast {
   padding: 1rem;
-  background-color: var(--container-day);
+  background-color: var(--container);
   border-radius: 2rem;
   margin-block: 2rem;
   width: 100%;
@@ -215,7 +215,7 @@ div[class^="extra-info"] p {
 }
 
 .forecast-cards > div.active {
-  background-color: var(--day-blue-3);
+  background-color: var(--active);
 }
 
 .forecast-cards > div * {
