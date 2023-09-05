@@ -1,5 +1,5 @@
 :root {
-  --ff: font-family: 'Rubik', sans-serif;
+  --ff: 'Rubik', sans-serif;
 
   --night-blue-1: #163E73;
   --night-blue-2: #0B2559;
@@ -19,6 +19,7 @@
 
   --container-day: var(--night-black);
   --container-day: var(--day-blue-1);
+  --fc: black;
 }
 
 *,
@@ -40,8 +41,10 @@ body {
 
   background: var(--day);
   font-family: var(--ff);
-  color: var(--fc-day);
+  font-size: 0.9rem;
+  color: var(--fc);
 }
+
 
 /* main ----------------------------------------------------------------------*/
 
@@ -58,21 +61,19 @@ main {
 }
 
 .search-box-input {
-  font-family: var(--ff);
   padding: 0.5rem 1rem;
-  color: var(--fc-night);
   background-color: var(--container-day);
-  border: 2px solid var(--fc-day);
+  border: 2px solid var(--fc);
   outline: none;
   border-radius: 1rem;
 }
 
 .search-box-input::placeholder {
-  color: var(--fc-day);
+  color: var(--fc);
 }
 
 .search-box-input:is(:focus, :hover) {
-  box-shadow: 0 0 0.5rem var(--fc-night);
+  box-shadow: 0 0 0.5rem var(--fc);
 }
 
 .search-box-button {
@@ -166,19 +167,15 @@ div[class^="extra-info"] p {
 
 .forecast-mode button {
   background: none;
-  color: var(--fc-day);
+  color: var(--fc);
   font-size: 1.2rem;
   border: none;
   border-radius: 1rem;
   padding: 0.2rem 0.5rem; 
 } 
 
-.forecast-mode button:is(:focus, :hover) {
-  text-decoration: underline;
-}
-
 .forecast-mode button.active {
-  background-color: var(--day-blue-3);
+  text-decoration: underline;
 }
 
 .forecast-cards {
@@ -230,10 +227,12 @@ div[class^="extra-info"] p {
 footer > * {
   margin-block: 0.5rem;
   text-decoration: none;
-  color: var(--fc-night);
+  color: white;
 }
 
-footer .info-dev {
+footer .info-dev a {
+  text-decoration: none;
+  color: white;
   display: flex;
   justify-content: center;
   gap: 0.2rem;
